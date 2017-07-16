@@ -20,6 +20,8 @@ module.exports = {
         }
         
         if (creep.memory.working == true) {
+            //
+            // Repairer creeps should NOT repair walls or ramparts.  Towers will handle those
             var structure = creep.pos.findClosestByPath(FIND_STRUCTURES, {filter: (s) => s.hits < s.hitsMax &&
                                                                                          s.structureType != STRUCTURE_WALL &&
                                                                                          s.structureType != STRUCTURE_RAMPART});
