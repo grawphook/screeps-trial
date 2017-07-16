@@ -80,7 +80,7 @@ module.exports.loop = function() {
         //
         // If there are no harvesters and not enough energy to create one, create the biggest one you can
         if (name == ERR_NOT_ENOUGH_ENERGY && numberOfHarvesters == 0) {
-            name = Game.spawns.FirstSpawn.createCustomCreep(Game.spawns.Spawn1.room.energyAvailable, 'harvester');
+            name = Game.spawns.FirstSpawn.createCustomCreep(Game.spawns.FirstSpawn.room.energyAvailable, 'harvester');
         }
     }
     else if (numberOfUpgraders < minimumNumberOfUpgraders) {

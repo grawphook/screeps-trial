@@ -20,7 +20,7 @@ module.exports = {
             var percentFull = (tower.energy / tower.energyCapacity) * 100;
 
             console.log('Tower is ' + percentFull + ' percent full');
-            if (percentFull > 75) {
+            if (percentFull > 90) {
                 var walls = tower.room.find(FIND_STRUCTURES, {
                     filter: (s) => s.structureType == STRUCTURE_WALL
                 });
@@ -28,7 +28,7 @@ module.exports = {
                 var target = undefined;
 
                 target = tower.pos.findClosestByPath(walls, {
-                    filter: (w) => w.hits / w.hitsMax < 0.01
+                    filter: (w) => w.hits / w.hitsMax < 0.0001
                 });
 
                 if (target != undefined) {
