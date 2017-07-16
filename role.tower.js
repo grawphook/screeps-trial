@@ -9,7 +9,7 @@
 
 module.exports = {
     run: function (tower) {
-        var repair = false;
+        var repair = true;
 
         var target = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
         if (target != undefined) {
