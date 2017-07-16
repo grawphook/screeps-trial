@@ -4,6 +4,7 @@ var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 var roleRepairer = require('role.repairer');
 var roleWallRepairer = require('role.wallRepairer');
+var roleTower = require('role.tower');
 
 module.exports.loop = function() {
     
@@ -45,10 +46,7 @@ module.exports.loop = function() {
         filter: (s) => s.structureType == STRUCTURE_TOWER
     });
     for (let tower of towers) {
-        var target = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-        if (target != undefined) {
-            tower.attack(target);
-        }
+        roleTower.run(tower);
     }
     
     //
@@ -82,9 +80,13 @@ module.exports.loop = function() {
         energy = 500;
     }
     
+    //
+    // Harvesters take priority
     if (numberOfHarvesters < minimumNumberOfHarvesters) {
         name = Game.spawns.FirstSpawn.createCustomCreep(energy, 'harvester');
         
+        //
+        // If there are no harvesters and not enough energy to create one, create the biggest one you can
         if (name == ERR_NOT_ENOUGH_ENERGY && numberOfHarvesters == 0) {
             name = Game.spawns.FirstSpawn.createCustomCreep(Game.spawns.Spawn1.room.energyAvailable, 'harvester');
         }
