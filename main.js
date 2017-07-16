@@ -60,7 +60,8 @@ module.exports.loop = function() {
     
     //
     // Determine the max energy that the spawn can use when all extensions and spawn are full
-    var energy = Game.spawns.FirstSpawn.room.energyCapacityAvailable;
+    // var energy = Game.spawns.FirstSpawn.room.energyCapacityAvailable;
+    var energy = 800;
     var name = undefined;
 
     //
