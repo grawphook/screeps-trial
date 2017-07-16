@@ -72,6 +72,15 @@ module.exports.loop = function() {
     // Determine the max energy that the spawn can use when all extensions and spawn are full
     var energy = Game.spawns.FirstSpawn.room.energyCapacityAvailable;
     var name = undefined;
+
+    //
+    // Saftey code 
+    // TODO: remove
+    if (numberOfHarvesters < 4) {
+        energy = 300;
+    } else {
+        energy = 500;
+    }
     
     if (numberOfHarvesters < minimumNumberOfHarvesters) {
         name = Game.spawns.FirstSpawn.createCustomCreep(energy, 'harvester');
