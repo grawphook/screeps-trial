@@ -27,7 +27,7 @@ module.exports = {
 
                 var target = undefined;
 
-                target = creep.pos.findClosestByPath(walls, {
+                target = tower.pos.findClosestByPath(walls, {
                     filter: (w) => w.hits / w.hitsMax < 0.1
                 });
 
