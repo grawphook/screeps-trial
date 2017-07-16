@@ -64,12 +64,12 @@ module.exports.loop = function() {
     var name = undefined;
 
     //
-    // Saftey code 
+    // Saftey code.  Create creeps with max energy unless there are few harvesters
     // TODO: remove
-    if (numberOfHarvesters < 4) {
+    if (Game.creeps.length < 4) {
         energy = 300;
-    } else {
-        energy = 500;
+    } else if (Game.creeps.length < minimumNumberOfHarvesters) {
+        energy = 600;
     }
     
     //
