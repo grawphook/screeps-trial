@@ -8,6 +8,7 @@
  */
 
 var roleUpgrader = require('role.upgrader');
+var roleHarvester = require('role.harvester');
 
 module.exports = {
     run: function(creep) {

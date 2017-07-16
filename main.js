@@ -8,7 +8,7 @@ var roleTower = require('role.tower');
 module.exports.loop = function() {
     
     //
-    // Cleanup memory of expired creeps
+    // Cleanup global memory of expired creeps
     for (let name in Memory.creeps) {
         if (Game.creeps[name] == undefined) {
             delete Memory.creeps[name];
@@ -35,7 +35,7 @@ module.exports.loop = function() {
     }
     
     //
-    // Get all the towers for the main room and attack hostile creeps
+    // Run each tower.  Attack or repair
     var towers = Game.rooms.E81N91.find(FIND_STRUCTURES, {
         filter: (s) => s.structureType == STRUCTURE_TOWER
     });
@@ -82,19 +82,13 @@ module.exports.loop = function() {
         if (name == ERR_NOT_ENOUGH_ENERGY && numberOfHarvesters == 0) {
             name = Game.spawns.FirstSpawn.createCustomCreep(Game.spawns.FirstSpawn.room.energyAvailable, 'harvester');
         }
-    }
-    else if (numberOfUpgraders < minimumNumberOfUpgraders) {
+    } else if (numberOfUpgraders < minimumNumberOfUpgraders) {
         name = Game.spawns.FirstSpawn.createCustomCreep(energy, 'upgrader');
-    }
-    else if (numberOfRepairers < minimumNumberOfRepairers)
-    {
+    } else if (numberOfRepairers < minimumNumberOfRepairers) {
         name = Game.spawns.FirstSpawn.createCustomCreep(energy, 'repairer');
-    }
-    else if (numberOfBuilders < minimumNumberOfBuilders)
-    {
+    } else if (numberOfBuilders < minimumNumberOfBuilders) {
         name = Game.spawns.FirstSpawn.createCustomCreep(energy, 'builder');
-    }
-    else {
+    } else {
         name = Game.spawns.FirstSpawn.createCustomCreep(energy, 'builder');
     }
 };
