@@ -14,6 +14,8 @@ module.exports.loop = function() {
             delete Memory.creeps[name];
         }
     }
+
+    console.log('Code from github');
     
     //
     // Run each creeps role
