@@ -28,7 +28,7 @@ module.exports = {
                 var target = undefined;
 
                 target = tower.pos.findClosestByPath(walls, {
-                    filter: (w) => w.hits / w.hitsMax < 0.1
+                    filter: (w) => w.hits / w.hitsMax < 0.01
                 });
 
                 if (target != undefined) {
