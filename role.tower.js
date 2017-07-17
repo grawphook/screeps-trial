@@ -22,7 +22,8 @@ module.exports = {
             console.log('Tower is ' + percentFull + ' percent full');
             if (percentFull > 90) {
                 var walls = tower.room.find(FIND_STRUCTURES, {
-                    filter: (s) => s.structureType == STRUCTURE_WALL
+                    filter: (s) => (s.structureType == STRUCTURE_WALL ||
+                                    s.structureType == STRUCTURE_RAMPART)
                 });
 
                 var target = undefined;
