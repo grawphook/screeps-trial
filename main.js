@@ -46,7 +46,7 @@ module.exports.loop = function() {
     //
     // Set role minimums.  Note that some roles overlap
     // TODO: look at moving to a const or config file
-    var minimumNumberOfHarvesters = 4;
+    var minimumNumberOfHarvesters = 5;
     var minimumNumberOfUpgraders = 3;
     var minimumNumberOfBuilders = 1;
     var minimumNumberOfRepairers = 2;

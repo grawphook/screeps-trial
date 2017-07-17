@@ -7,8 +7,8 @@
  * mod.thing == 'a thing'; // true
  */
 
-// var roleUpgrader = require('role.upgrader');
-var roleHarvester = require('role.harvester');
+var roleUpgrader = require('role.upgrader');
+// var roleHarvester = require('role.harvester');
 
 module.exports = {
     run: function(creep) {
@@ -29,7 +29,7 @@ module.exports = {
                 }
             }
             else {
-                roleHarvester.run(creep);
+                roleUpgrader.run(creep);
             }
         }
         else {
